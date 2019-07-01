@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_084919) do
+ActiveRecord::Schema.define(version: 2019_07_01_091517) do
 
   create_table "pokemons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -24,10 +24,21 @@ ActiveRecord::Schema.define(version: 2019_07_01_084919) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "type_pokemons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "pokemon_id"
+    t.bigint "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_type_pokemons_on_pokemon_id"
+    t.index ["type_id"], name: "index_type_pokemons_on_type_id"
+  end
+
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "type_pokemons", "pokemons"
+  add_foreign_key "type_pokemons", "types"
 end
