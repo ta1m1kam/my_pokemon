@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Pokemon < ApplicationRecord
   has_many :type_pokemons
   has_many :types, through: :type_pokemons

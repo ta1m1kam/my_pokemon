@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 
-seeds = JSON.parse(File.read(File.join(File.dirname(__FILE__ ), 'data', 'pokedex.json')))
+seeds = JSON.parse(File.read(File.join(File.dirname(__FILE__), 'data', 'pokedex.json')))
 
 if TypePokemon.first.blank?
   seeds.each do |seed|

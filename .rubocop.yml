@@ -33,3 +33,8 @@ Bundler/OrderedGems:
 
 Lint/ShadowedException:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
