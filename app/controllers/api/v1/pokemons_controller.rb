@@ -7,7 +7,7 @@ module Api::V1
 
     def show
       pokemon = Pokemon.find(params[:id])
-      render json: { status: :ok, data: pokemon }
+      render json: { status: :ok, data: { pokemon: pokemon, types: pokemon.types.pluck(:name) } }
     end
   end
 end
